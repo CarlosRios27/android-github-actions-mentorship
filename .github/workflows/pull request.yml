@@ -12,6 +12,7 @@ on:
       
 # Store variables that will be used throughout the entire workflow
 env:
+  JAVA_DISTRIBUTION: 'temurin'
   JAVA_VERSION: '17'
   
 jobs:
@@ -26,7 +27,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
-          distribution: 'temurin'
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
           java-version: ${{ env.JAVA_VERSION }}
 
       - name: Setup Gradle
@@ -50,7 +51,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
-          distribution: 'temurin'
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
           java-version: ${{ env.JAVA_VERSION }}
 
       - name: Setup Gradle
