@@ -1,4 +1,4 @@
-name: 'Pull Request Validation'
+name: 'Push Validation'
 
 on:
   # Run on push targeting main or develop
