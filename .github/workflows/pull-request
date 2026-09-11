@@ -11,8 +11,8 @@ on:
       
 # Store variables that will be used throughout the entire workflow
 env:
-  JAVA_DISTRIBUTION: 'temurin'
-  JAVA_VERSION: '17'
+  JAVA_DISTRIBUTION: ${{ vars.JAVA_DISTRIBUTION }}
+  JAVA_VERSION: ${{ secrets.JAVA_VERSION }}
   
 jobs:
   tests:
