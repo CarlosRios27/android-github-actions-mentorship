@@ -1,0 +1,27 @@
+name: 'Android Setup'
+
+description: Setup Android build environment
+
+inputs:
+  java-version:
+    required: true
+    description: Java version to use in the composite action
+  java-distribution:
+    required: true
+    description: Java distribution to use in the composite action
+
+runs:
+  using: composite
+
+  steps:
+    - name: Setup Java
+    - uses: actions/setup-java@v4
+      with:
+        distribution: ${{ inputs.java-distribution }}
+        java-version: ${{ inputs.java-version }}
+
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+
+    - name: Grant execute permission to Gradle Wrapper
+      run: chmod +x gradlew
