@@ -6,6 +6,7 @@ inputs:
   java-version:
     required: true
     description: Java version to use in the composite action
+
   java-distribution:
     required: true
     description: Java distribution to use in the composite action
@@ -15,7 +16,7 @@ runs:
 
   steps:
     - name: Setup Java
-    - uses: actions/setup-java@v4
+      uses: actions/setup-java@v4
       with:
         distribution: ${{ inputs.java-distribution }}
         java-version: ${{ inputs.java-version }}
@@ -25,3 +26,4 @@ runs:
 
     - name: Grant execute permission to Gradle Wrapper
       run: chmod +x gradlew
+      shell: bash
